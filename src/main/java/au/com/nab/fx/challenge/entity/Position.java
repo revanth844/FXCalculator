@@ -1,4 +1,4 @@
-package au.com.nab.fx.challenge.model;
+package au.com.nab.fx.challenge.entity;
 
 import java.math.BigDecimal;
 

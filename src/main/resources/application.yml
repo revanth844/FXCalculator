@@ -11,12 +11,13 @@ spring:
       max-idle: 20
       min-idle: 15
   jpa:
+    generate-ddl: true
     properties:
       hibernate:
         ddl-auto: create
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-        id:
-          new_generator_mappings: false
+#        id:
+#          new_generator_mappings: false
 logging:
   level:
     org:
