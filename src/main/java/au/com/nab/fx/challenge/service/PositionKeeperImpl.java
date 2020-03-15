@@ -344,4 +344,10 @@ public class PositionKeeperImpl implements PositionKeeper {
 		return false;
 	}
 
+	@Override
+	public String printPositions() {
+		// TODO Auto-generated method stub
+		return "";
+	}
+
 }

@@ -33,4 +33,11 @@ public interface PositionKeeper {
 	 * @throws InvalidRateEventException
 	 */
 	boolean processRateEvent(RateEvent event) throws InvalidRateEventException;
+
+	/**
+	 * Print positions current positions in CSV format
+	 * 
+	 * @return
+	 */
+	String printPositions();
 }
