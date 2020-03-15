@@ -20,3 +20,8 @@ Added request validation
 Amend trades with version>0
 Any older versions of trade to be ignored, if a higher version is already processed
 
+### TODO
+TradeType : Cancel
+CSV export
+Legible ResponseBody, instead of just boolean
+JUnits (haven't followed TDD or BDD, owing to time-crunch)

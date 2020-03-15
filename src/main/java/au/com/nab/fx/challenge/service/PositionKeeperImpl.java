@@ -38,6 +38,15 @@ public class PositionKeeperImpl implements PositionKeeper {
 	TradingEventRepository tradingEventRepository;
 
 	@Override
+	public boolean cancelTradeEvent(long tradeId) throws InvalidTradeEventException {
+		// TODO: implement cancel logic
+		// reverse the latest position on this trade
+		// ignore all future events on this trade
+
+		return false;
+	}
+
+	@Override
 	@Transactional
 	public boolean processTradeEvent(TradeEvent event) throws InvalidTradeEventException {
 
@@ -326,4 +335,5 @@ public class PositionKeeperImpl implements PositionKeeper {
 		return amount.multiply(rate).setScale(PRECISION_FOUR_DECIMALS, RoundingMode.HALF_UP);
 
 	}
+
 }

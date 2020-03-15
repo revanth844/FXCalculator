@@ -14,4 +14,12 @@ public interface PositionKeeper {
 	 */
 	boolean processTradeEvent(TradeEvent event) throws InvalidTradeEventException;
 
+	/**
+	 * Method to be consumed from controller to cancel trade
+	 * 
+	 * @param tradeId
+	 * @return
+	 * @throws InvalidTradeEventException
+	 */
+	boolean cancelTradeEvent(long tradeId) throws InvalidTradeEventException;
 }
