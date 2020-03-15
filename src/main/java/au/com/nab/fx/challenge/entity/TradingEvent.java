@@ -8,16 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "trading_event")
+@ToString
 @Getter
 @Setter
-@NoArgsConstructor
 public class TradingEvent {
-
 	@Id
 	@Column(name = "trade_id")
 	long tradeId;
@@ -39,5 +38,4 @@ public class TradingEvent {
 
 	@Column(name = "fx_rate")
 	BigDecimal fxRate;
-
 }

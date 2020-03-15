@@ -2,6 +2,9 @@ package au.com.nab.fx.challenge.model;
 
 import java.math.BigDecimal;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -19,9 +22,15 @@ import lombok.ToString;
 public class TradeEvent {
 	long tradeId;
 	int version;
-	String eventType;
+	EventType eventType;
+	TradeDirection direction;
+
+	@NotBlank(message = "CurrencyPair cannot be blank")
 	String currencyPair;
-	String direction;
+
+	@DecimalMin("0.0001")
 	BigDecimal amount;
+
+	@DecimalMin("0.0001")
 	BigDecimal fxRate;
 }

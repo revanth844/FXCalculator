@@ -10,12 +10,16 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "position")
+@ToString
 @Getter
 @Setter
 @NoArgsConstructor
+//@AllArgsConstructor
+//@Builder
 public class Position {
 
 	@Id
