@@ -20,8 +20,10 @@ import org.springframework.web.server.ResponseStatusException;
 import au.com.nab.fx.challenge.entity.Position;
 import au.com.nab.fx.challenge.entity.TradingEvent;
 import au.com.nab.fx.challenge.entity.TradingIdVersion;
+import au.com.nab.fx.challenge.exception.InvalidRateEventException;
 import au.com.nab.fx.challenge.exception.InvalidTradeEventException;
 import au.com.nab.fx.challenge.model.EventType;
+import au.com.nab.fx.challenge.model.RateEvent;
 import au.com.nab.fx.challenge.model.TradeDirection;
 import au.com.nab.fx.challenge.model.TradeEvent;
 import au.com.nab.fx.challenge.repository.PositionRepository;
@@ -334,6 +336,12 @@ public class PositionKeeperImpl implements PositionKeeper {
 	private BigDecimal getConvertedAmount(BigDecimal amount, BigDecimal rate) {
 		return amount.multiply(rate).setScale(PRECISION_FOUR_DECIMALS, RoundingMode.HALF_UP);
 
+	}
+
+	@Override
+	public boolean processRateEvent(RateEvent event) throws InvalidRateEventException {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

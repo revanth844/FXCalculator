@@ -1,6 +1,8 @@
 package au.com.nab.fx.challenge.service;
 
+import au.com.nab.fx.challenge.exception.InvalidRateEventException;
 import au.com.nab.fx.challenge.exception.InvalidTradeEventException;
+import au.com.nab.fx.challenge.model.RateEvent;
 import au.com.nab.fx.challenge.model.TradeEvent;
 
 public interface PositionKeeper {
@@ -22,4 +24,13 @@ public interface PositionKeeper {
 	 * @throws InvalidTradeEventException
 	 */
 	boolean cancelTradeEvent(long tradeId) throws InvalidTradeEventException;
+
+	/**
+	 * Method to process rate change event
+	 * 
+	 * @param event
+	 * @return
+	 * @throws InvalidRateEventException
+	 */
+	boolean processRateEvent(RateEvent event) throws InvalidRateEventException;
 }
