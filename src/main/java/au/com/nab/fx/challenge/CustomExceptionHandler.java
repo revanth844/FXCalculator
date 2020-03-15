@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import au.com.nab.fx.challenge.exception.InvalidTradeEventException;
 import au.com.nab.fx.challenge.model.ErrorResponse;
 
 @ControllerAdvice
@@ -48,4 +49,10 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
+	@ExceptionHandler(InvalidTradeEventException.class)
+	public final ResponseEntity<ErrorResponse> handleConstraintViolationException(InvalidTradeEventException ex,
+			WebRequest request) {
+		ErrorResponse error = new ErrorResponse("InvalidTradeEventException", ex.getMessage(), new ArrayList<>());
+		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+	}
 }

@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -12,6 +13,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
+@IdClass(TradingIdVersion.class)
 @Table(name = "trading_event")
 @ToString
 @Getter
@@ -21,6 +23,7 @@ public class TradingEvent {
 	@Column(name = "trade_id")
 	long tradeId;
 
+	@Id
 	@Column(name = "version")
 	int version;
 
@@ -38,4 +41,8 @@ public class TradingEvent {
 
 	@Column(name = "fx_rate")
 	BigDecimal fxRate;
+
+	@Column(name = "is_ignored")
+	boolean isIgnored;
+
 }

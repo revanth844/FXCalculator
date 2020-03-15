@@ -22,7 +22,8 @@ logging:
   level:
     org:
       hibernate:
-        SQL: DEBUG
+        SQL: TRACE
+#        SQL: DEBUG
     au: 
       com:
         nab:

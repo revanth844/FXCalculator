@@ -11,18 +11,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import au.com.nab.fx.challenge.exception.InvalidTradeEventException;
 import au.com.nab.fx.challenge.model.TradeEvent;
-import au.com.nab.fx.challenge.service.PositionKeper;
+import au.com.nab.fx.challenge.service.PositionKeeper;
 
 @RestController
 @RequestMapping("trade")
 public class TradeController {
 	@Autowired
-	private PositionKeper positionKeper;
+	private PositionKeeper positionKeeper;
 
 	@PostMapping(value = "event", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Boolean> processTradeEvent(@Valid @RequestBody TradeEvent event) {
-		boolean response = positionKeper.processTradeEvent(event);
+	public ResponseEntity<Boolean> processTradeEvent(@Valid @RequestBody TradeEvent event)
+			throws InvalidTradeEventException {
+		boolean response = positionKeeper.processTradeEvent(event);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
