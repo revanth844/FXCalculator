@@ -23,6 +23,11 @@ logging:
     org:
       hibernate:
         SQL: DEBUG
+    au: 
+      com:
+        nab:
+          fx:
+            challenge: DEBUG              
 #        type:
 #          descriptor:
 #            sql:

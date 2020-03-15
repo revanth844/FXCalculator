@@ -1,5 +1,7 @@
 package au.com.nab.fx.challenge.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,9 +21,9 @@ public class TradeController {
 	private PositionKeper positionKeper;
 
 	@PostMapping(value = "event", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Void> processTradeEvent(@RequestBody TradeEvent event) {
-		return (positionKeper.processTradeEvent(event) ? new ResponseEntity<Void>(HttpStatus.CREATED)
-				: new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR));
+	public ResponseEntity<Boolean> processTradeEvent(@Valid @RequestBody TradeEvent event) {
+		boolean response = positionKeper.processTradeEvent(event);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
 }
